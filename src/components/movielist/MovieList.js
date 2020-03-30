@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './movielist.css'
 
 import Movie from './movie/Movie';
 
@@ -12,7 +13,7 @@ class MovieList extends Component {
 
     renderMovies(movies){
         return movies.map((movieData,i) => {
-            return <Movie key={i} data={movieData} />
+            return <Movie key={i} index={i} data={movieData} />
         })
     }
 
@@ -22,10 +23,21 @@ class MovieList extends Component {
         const movies = this.props.data;
                 
         return (
-            <div>
-                {movies ? this.renderMovies(movies) : ''}
-            </div>
-     
+            <table class="table table-dark movie-list-container">
+                <thead class="thead-darker">
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Released</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">min.</th>
+                    <th scope="col">Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {movies ? this.renderMovies(movies) : ''}
+                </tbody>
+            </table>
         )
     }
 

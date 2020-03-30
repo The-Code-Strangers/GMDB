@@ -1,0 +1,10 @@
+.movie-list-container {
+    width: 90%;
+    margin: 5% auto;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;  
+}
+
+.thead-darker {
+    background-color: #282828;
+}
