@@ -11,8 +11,8 @@ class MovieList extends Component {
     }
 
     renderMovies(movies){
-        return movies.map((movieData) => {
-            return <Movie data={movieData} />
+        return movies.map((movieData,i) => {
+            return <Movie key={i} data={movieData} />
         })
     }
 
