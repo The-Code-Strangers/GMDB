@@ -13,7 +13,7 @@ const Movie = ({ data , index }) => {
                 <th scope="row">{releaseYear}</th>
                 <th scope="row">{genre}</th>
                 <th scope="row">{runtimeInMinutes}</th>  
-                <th scope="row">{rating}/5</th>               
+                <th scope="row">{rating}</th>               
             </tr>
     )
 } 

@@ -7,13 +7,40 @@ import MovieList from './MovieList.js';
 
 test('renders MovieList', () => {
   const { container } = render(<MovieList />);
-  const movieContainer = container.querySelector('div')
+  const movieContainer = container.querySelector('table')
   expect(movieContainer).toBeInTheDocument();
 });  
 
+
+test('renders tablehead', () => {
+  const { container } = render(<MovieList />);
+  const movieContainer = container.querySelector('thead')
+  expect(movieContainer).toBeInTheDocument();
+})
+
+
+test('renders tablehead with information', () => {
+  const { getByText } = render(<MovieList />);
+
+  const titleElement = getByText('Title');
+  expect(titleElement).toBeInTheDocument();
+
+  const releasedElement = getByText('Released');
+  expect(releasedElement).toBeInTheDocument();
+
+  const genreElement = getByText('Genre');
+  expect(genreElement).toBeInTheDocument();
+
+  const runtimeElement = getByText('min.');
+  expect(runtimeElement).toBeInTheDocument();
+
+  const ratingtElement = getByText('Rating');
+  expect(ratingtElement).toBeInTheDocument();
+})
+
 test('renders Movilist with one Movie', () => {
   const singleData = {
-    title: "Title",
+    title: "Harry Potter I",
     releaseYear: 2015,
     genre: "POP", 
     runtimeInMinutes: 120,
@@ -35,11 +62,11 @@ test('renders Movilist with one Movie', () => {
 
 test('renders Movilist with many Movies', () => {
   const data1 = {
-    title: "Title",
+    title: "Harry Potter V",
     releaseYear: 2015,
     genre: "POP", 
     runtimeInMinutes: 120,
-    rating: 5
+    rating: 4
   }
 
   const data2 = {
@@ -47,7 +74,7 @@ test('renders Movilist with many Movies', () => {
     releaseYear: 2006,
     genre: "Fantasy", 
     runtimeInMinutes: 110,
-    rating: 4
+    rating: 3
   }
 
   const data = [
@@ -61,9 +88,24 @@ test('renders Movilist with many Movies', () => {
   data.forEach(singleData => {
     for (let key in singleData) {
       const elements = getAllByText(singleData[key].toString());  
+      
       expect(elements.length).toEqual(1);
       expect(elements[0]).toBeInTheDocument();
     }
   })
 
+});
+
+test('displays laoding spinner when isLoading' , () => {  
+  const { getByTestId } = render(<MovieList isLoading={true} />);      
+
+  const spinnerElement = getByTestId('movie-list-spinner');
+  expect(spinnerElement).toBeInTheDocument();
+});
+
+test('displays no data found when not loading and no data' , () => {  
+  const { getByText } = render(<MovieList isLoading={false} />);      
+
+  const dataAlertElement = getByText(/no data found/);
+  expect(dataAlertElement).toBeInTheDocument();
 });

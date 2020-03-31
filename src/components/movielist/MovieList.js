@@ -21,10 +21,18 @@ class MovieList extends Component {
 
     render() {
         const movies = this.props.data;
-                
+        
+        if(this.props.isLoading) {
+            return (
+                <div data-testid="movie-list-spinner" className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            )
+        }
+
         return (
-            <table class="table table-dark movie-list-container">
-                <thead class="thead-darker">
+            <table className="table table-dark movie-list-container">
+                <thead className="thead-darker">
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
@@ -35,12 +43,19 @@ class MovieList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {movies ? this.renderMovies(movies) : ''}
+                    {movies ? this.renderMovies(movies) : this.renderDarkAlert('no data found')}
                 </tbody>
             </table>
-        )
+        )       
     }
 
+    renderDarkAlert(message) {
+        return (
+            <tr className="alert alert-dark" role="alert">
+                <td>{message}</td>
+            </tr>
+        )
+    }
 }
 
 export default MovieList;

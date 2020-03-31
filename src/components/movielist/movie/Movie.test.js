@@ -7,7 +7,7 @@ import Movie from './Movie';
 
 test('renders Movie', () => {
   const { container } = render(<Movie data={{}} />);
-  const movieContainer = container.querySelector('div')
+  const movieContainer = container.querySelector('tr')
   expect(movieContainer).toBeInTheDocument();
 });
 
@@ -18,7 +18,7 @@ test('renders Movie', () => {
         releaseYear: 2015,
         genre: "POP", 
         runtimeInMinutes: 120,
-        rating: 5
+        rating: "5"
     }
 
 
