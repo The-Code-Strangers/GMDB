@@ -96,7 +96,9 @@ test('renders Movilist with many Movies', () => {
 
 });
 
-test('displays laoding spinner when isLoading' , () => {  
+
+
+test('displays loading spinner when isLoading' , () => {  
   const { getByTestId } = render(<MovieList isLoading={true} />);      
 
   const spinnerElement = getByTestId('movie-list-spinner');

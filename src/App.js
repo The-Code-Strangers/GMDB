@@ -27,7 +27,7 @@ const data = [
 function App() {
   return (
     <div className="App">
-     <MovieList />
+     <MovieList  />
     </div>
   );
 }

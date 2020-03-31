@@ -7,13 +7,11 @@ import Movie from './movie/Movie';
 class MovieList extends Component {
     constructor(props) {
         super(props);   
-        
-        
     }
 
     renderMovies(movies){
-        return movies.map((movieData,i) => {
-            return <Movie key={i} index={i} data={movieData} />
+        return movies.map((movieData, i) => {
+            return <Movie key={i} index={i} data={movieData} />     //TODO: get id from data in Movie copmponent
         })
     }
 
@@ -49,11 +47,11 @@ class MovieList extends Component {
         )       
     }
 
-    renderDarkAlert(message) {
-        return (
-            <tr className="alert alert-dark" role="alert">
-                <td>{message}</td>
-            </tr>
+renderDarkAlert(message) {
+    return (
+        <tr className="alert alert-dark" role="alert">
+            <td colSpan="6">{message}</td>
+        </tr>
         )
     }
 }
