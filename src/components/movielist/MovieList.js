@@ -53,8 +53,8 @@ class MovieList extends Component {
         return (
             <tr className="alert alert-dark" role="alert">
                 <td>{message}</td>
-            </tr>
-        )
+            </tr>          
+        )       
     }
 }
 
