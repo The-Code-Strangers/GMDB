@@ -12,14 +12,14 @@ import TestRedux from './TestRedux'
 
 function App() {
   const store = createStore(rootReducer);
-  console.log(store.getState());
+  console.error("STORE: ----> ",store.getState());
   
 
   return (
     <Provider store={store}>
-    <div className="App">    
-     <MovieListContainer />
-    </div>
+        <div className="App">    
+          <MovieListContainer />
+        </div>
     </Provider>
   );
 }

@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
-class MovieListContainer extends Component {
+import { connect } from 'react-redux'
+import { saveMovies } from '../../redux/action/movieActions'
+
+import MovieList from './MovieList'
+
+export class MovieListContainer extends Component {
     constructor(props) {
         super(props)
     }
-    
+
     render() {
         return (
-            <div>
-                
-            </div>
+            <MovieList 
+               
+            />
         )
     }
 }
@@ -19,5 +23,9 @@ const mapStateToProps = state => ({
     movies: state.movies
 })  
 
+const mapDispatchToProps = dispatch => ({
+    saveMovies: movies => dispatch(saveMovies(movies))
+})
 
-export default connect(mapDispatchToProps)(MovieListContainer)
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieListContainer) 
