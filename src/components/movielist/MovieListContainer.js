@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class MovieListContainer extends Component {
+class MovieListContainer extends Component {
     constructor(props) {
         super(props)
     }
@@ -13,3 +14,10 @@ export default class MovieListContainer extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({           
+    movies: state.movies
+})  
+
+
+export default connect(mapDispatchToProps)(MovieListContainer)
