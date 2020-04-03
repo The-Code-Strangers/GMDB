@@ -1,35 +1,31 @@
 import React from 'react';
-
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './redux/reducer/rootReducer'
 import './App.css';
-import MovieList from './components/movielist/MovieList'
+import MovieListContainer from './components/movielist/MovieListContainer'
 
-const data1 = {
-  title: "Title",
-  releaseYear: 2015,
-  genre: "POP", 
-  runtimeInMinutes: 120,
-  rating: 5
-}
+// MovieListContainer -- [data] --> MovieList --[movideData]--> MovieComponent 
 
-const data2 = {
-  title: "Harry Potter I",
-  releaseYear: 2006,
-  genre: "Fantasy", 
-  runtimeInMinutes: 110,
-  rating: 4
-}
+import TestRedux from './TestRedux'
 
-const data = [
-  data1,
-  data2
-]
 
 function App() {
+  const store = createStore(rootReducer);
+  console.error("STORE: ----> ",store.getState());
+  
+
   return (
-    <div className="App">
-     <MovieList />
-    </div>
+    <Provider store={store}>
+        <div className="App">    
+          <MovieListContainer />
+        </div>
+    </Provider>
   );
 }
 
 export default App;
+
+
+
+

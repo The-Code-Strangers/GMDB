@@ -50,7 +50,7 @@ test('renders Movilist with one Movie', () => {
   const data = [
     singleData
   ]
-  const { getAllByText } = render(<MovieList data={data} />);
+  const { getAllByText } = render(<MovieList movies={data} />);
 
   for (let key in singleData) {
     const elements = getAllByText(singleData[key].toString());  
@@ -83,7 +83,7 @@ test('renders Movilist with many Movies', () => {
   ]
 
 
-  const { getAllByText } = render(<MovieList data={data} />);
+  const { getAllByText } = render(<MovieList movies={data} />);
 
   data.forEach(singleData => {
     for (let key in singleData) {
@@ -93,7 +93,6 @@ test('renders Movilist with many Movies', () => {
       expect(elements[0]).toBeInTheDocument();
     }
   })
-
 });
 
 test('displays laoding spinner when isLoading' , () => {  
