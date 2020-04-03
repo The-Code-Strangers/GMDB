@@ -3,21 +3,23 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from './redux/reducer/rootReducer'
 import './App.css';
-import MovieList from './components/movielist/MovieList'
+import MovieListContainer from './components/movielist/MovieListContainer'
+
+// MovieListContainer -- [data] --> MovieList --[movideData]--> MovieComponent 
 
 import TestRedux from './TestRedux'
 
 
 function App() {
   const store = createStore(rootReducer);
-  console.log(store.getState());
+  console.error("STORE: ----> ",store.getState());
   
 
   return (
     <Provider store={store}>
-    <div className="App">    
-     <TestRedux />
-    </div>
+        <div className="App">    
+          <MovieListContainer />
+        </div>
     </Provider>
   );
 }
