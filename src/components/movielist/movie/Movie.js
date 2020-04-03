@@ -2,12 +2,19 @@ import React from 'react'
 
 import './movie.css';
 
-const Movie = ({ data , index }) => {
+
+
+import { connect } from 'react-redux'
+import { updateReviews } from '../../../redux/action/reviewActions';
+
+
+const Movie = ({ movie , index, updateReview }) => {
  
-    const { title , releaseYear , genre , runtimeInMinutes , rating} = data;
+    const { title , releaseYear , genre , runtimeInMinutes , rating} = movie;
    
     return (              
-            <tr>
+            <tr onClick={() =>updateReview(movie.id)
+            }>
                 <th className='index-col' scope="row">{index}</th>
                 <th scope="row">{title}</th>
                 <th scope="row">{releaseYear}</th>
@@ -18,4 +25,8 @@ const Movie = ({ data , index }) => {
     )
 } 
 
-export default Movie
+const mapDispatchToProps = dispatch => ({
+    updateReview: reviews => dispatch(updateReviews(reviews))
+})
+
+export default connect(null,mapDispatchToProps)(Movie)

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveMovies, addMovies } from '../../redux/action/movieActions';
+import { saveMovies } from '../../redux/action/movieActions';
 import MovieList from './MovieList'
 
 export class MovieListContainer extends Component {
     constructor({props}) {
         super(props)    
-
     }
 
     componentDidMount() {

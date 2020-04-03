@@ -7,7 +7,6 @@ import MovieListContainer from './components/movielist/MovieListContainer'
 
 // MovieListContainer -- [data] --> MovieList --[movideData]--> MovieComponent 
 
-import TestRedux from './TestRedux'
 
 
 function App() {

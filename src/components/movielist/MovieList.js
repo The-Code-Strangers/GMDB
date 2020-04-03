@@ -40,7 +40,7 @@ const MovieList = (props) => {
 
 const renderMovies = (movies) => {
     return movies.map((movieData,i) => {
-        return <Movie key={i} index={i} data={movieData} />
+        return <Movie key={i} index={i} movie={movieData} />
     })
 }
 
