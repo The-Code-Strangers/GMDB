@@ -3,6 +3,8 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from './redux/reducer/rootReducer'
 import './App.css';
+import { applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import MovieListContainer from './components/movielist/MovieListContainer'
 
 // MovieListContainer -- [data] --> MovieList --[movideData]--> MovieComponent 
@@ -10,7 +12,10 @@ import MovieListContainer from './components/movielist/MovieListContainer'
 
 
 function App() {
-  const store = createStore(rootReducer);
+
+
+  const middlewares = [thunk];
+  const store = createStore(rootReducer, applyMiddleware(...middlewares));
   console.error("STORE: ----> ",store.getState());
   
 
